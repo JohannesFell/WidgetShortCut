@@ -1,4 +1,11 @@
 
+.root { -fx-background-color: transparent;}
+
+.button
+{
+    -fx-background-color: transparent;
+}
+
 .button1
 {
     -fx-background-image: url("../images/youtube.png");
