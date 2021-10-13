@@ -5,13 +5,19 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
+
+    Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
 
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -82,9 +88,15 @@ public class Main extends Application {
         root.getChildren().add( button4 );
         root.getChildren().add( button5 );
 
-        Scene scene = new Scene( root, 400, 400 );
+        // Szene erstellen
+        Scene scene = new Scene( root );
+        scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add( getClass().getResource("application.css").toExternalForm() );
         primaryStage.setScene( scene );
+        primaryStage.setX((screenSize.getWidth()/2)- 170);
+        primaryStage.setY(20.0);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
         primaryStage.show();
     }
 
